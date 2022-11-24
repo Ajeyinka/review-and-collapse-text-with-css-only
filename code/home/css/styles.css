@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+  }
+  
+  html{
+    font-size: 17px;
+  }
+  
+  :root {
+      
+  
+      --ff-1:'Lato', sans-serif;
+  --ff-2: 'Oswald', sans-serif;
+    
+      --fw-s: 400;
+      --fw-m: 500;
+      --fw-b: 600;
+      --fs-1:1em ;
+      --fs-2: 2em;
+      --fs-3: 1.4em;
+      --fs-s:  0.8em;
+       --fs-b:3em;
+      --bg-clr: white;
+      --pri-clr: rgb(29,33,35);
+      --accent-clr: rgb(103, 34, 128);
+      --margin:2em ;
+      --pad: 0.5rem;
+      
+  
+  
+  }
+  
+  .body{
+    font-family:var(--ff-1);
+  }
+  section{
+    display:inline-flex;
+    
+  }
+  
+  
+  article{
+    width:33%;
+    padding:0.5em;
+  }
+  
+  .para{
+    --max-lines:5;
+    --line-height:1.4;
+    max-height: calc(var(--max-lines) * 1em * var(--line-height));
+    line-height: var(--line-height);
+    overflow:hidden;
+    position:relative;
+  }
+  
+  .para:has(+.expand-btn:not(:checked))::before{
+    content:"";
+    position:absolute;
+    height:calc(1em * var(--line-height));
+    width:100%;
+    bottom:0;
+    pointer-events:none;
+    background:linear-gradient(to bottom, transparent, white);
+  }
+  
+  .expand-btn{
+    appearance:none;
+    border:1px solid blue;
+    padding:0.5em;
+    border-radius:0.25em;
+    cursor:pointer;
+    margin-top:1rem;
+  }
+  .expand-btn:hover{
+    background-color:grey;
+  }
+  
+  .expand-btn::before{
+    content:"Expand"
+  }
+  
+  .expand-btn:checked::before{
+    content:"Collapse"
+  }
+  
+  .para:has(+.expand-btn:checked) {
+    max-height:none;
+  }
+  
